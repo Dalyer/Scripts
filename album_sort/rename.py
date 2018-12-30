@@ -1,25 +1,35 @@
-# organize.py
+# rename.py
+# This script uses to mp3-tagger to fix the meta data on mp3 files that
+# cause mp3 players to wrongly categorize albums
+
+# INSTRUCTIONS:
+# Put this file in the same directory as the songs
+# Make sure that songs are in an album directory that is in an artist directory
+# run the script
 
 import os
-import eyed3
+from mp3_tagger import MP3File, VERSION_1, VERSION_2, VERSION_BOTH
 
 dirname = os.getcwd()
-
 files = os.listdir()
-songs = []
-folderDir = []
-#detect the file types
-#sort into seasons for mp4/mkv files
-#work with the stats of albums and such
 
+dir_list = dirname.split('\\')
+album_name = dir_list[-1]
+artist_name = dir_list[-2]
+
+songs = []
 for file in files:
-	if file.endswith('.mp3') or file.endswith('.flac') or file.endswith('.m4a'):
+	if file.endswith('.mp3'):
 		songs.append(file)
 
-# for song in mp3s:
-# 	audiofile = eyed3.load(song)
-# 	
-audiofile = eyed3.load(songs[0])
-audiofile.tag.album = u"Dear Agony"
-audiofile.tag.save()
-print(audiofile.tag.album)
+print("Working..")
+
+for song_path in songs:
+	audio_file = MP3File(song_path)
+	audio_file.set_version(VERSION_BOTH)
+	audio_file.album = album_name
+	audio_file.artist = artist_name
+	audio_file.band = artist_name
+	audio_file.save()
+
+print("Done")

@@ -2,16 +2,20 @@
 # This script uses to mp3-tagger to fix the meta data on mp3 files that
 # cause mp3 players to wrongly categorize albums
 
+# REQUIREMENTS:
+# Install mp3-tagger at:
+
 # INSTRUCTIONS:
 # Put this file in the same directory as the songs
 # Make sure that songs are in an album directory that is in an artist directory
 # run the script
 
+
 import os
 from mp3_tagger import MP3File, VERSION_1, VERSION_2, VERSION_BOTH
 
 dirname = os.getcwd()
-files = os.listdir()
+files = os.listdir(dirname)
 
 dir_list = dirname.split('\\')
 album_name = dir_list[-1]

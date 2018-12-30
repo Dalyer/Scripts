@@ -1,5 +1,5 @@
 # rename.py
-# This script uses to mp3-tagger to fix the meta data on mp3 files that
+# This script uses mp3-tagger to fix the meta data on mp3 files that
 # cause mp3 players to wrongly categorize albums
 
 # REQUIREMENTS:

@@ -3,7 +3,7 @@
 # cause mp3 players to wrongly categorize albums
 
 # REQUIREMENTS:
-# Install mp3-tagger at:
+# Install mp3-tagger at: https://pypi.org/project/mp3-tagger/
 
 # INSTRUCTIONS:
 # Put this file in the same directory as the songs
